@@ -1,0 +1,21 @@
+import tkinter as tk
+import os
+path='C:\\Program Files (x86)\\Steam\\steamapps\\common\\Underlords\\game\\dac\\cfg\\video.txt'
+root = tk.Tk()
+
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+file = open(path,'rt')
+lines = file.readlines()
+file.close()
+file = open(path,'rt')
+data=file.read()
+file.close()
+file.close()
+file = open(path,'wt')
+data = data.replace(lines[12], '\t"setting.defaultres"		"'+str(screen_width)+'"\n')
+data = data.replace(lines[13], '\t"setting.defaultresheight"		"'+str(screen_height)+'"\n')
+file.write(data)
+file.close()
+os.system("start steam://rungameid/1046930")
+
